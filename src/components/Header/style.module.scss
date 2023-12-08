@@ -1,0 +1,46 @@
+@import '~/styles/variable.module.scss';
+.header {
+  background-color: $primary-color;
+  width: 100%;
+  padding: 24px;
+  font-family: 'open sans', Arial, serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .nav {
+    ul {
+      display: flex;
+      list-style: none;
+      gap: 24px;
+    }
+  }
+}
+
+.headerLink {
+  a {
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: 400;
+    color: $text-color-white;
+    font-family: Impact, Arial, serif;
+    position: relative;
+    opacity: 0.7;
+  }
+}
+
+.active {
+  a::before {
+    width: 8px;
+    height: 8px;
+    background-color: #ffffff;
+    display: block;
+    border-radius: 50%;
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: -20px;
+  }
+  a {
+    opacity: 1;
+  }
+}
