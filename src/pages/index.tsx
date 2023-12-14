@@ -1,5 +1,6 @@
 import Head from 'next/head'
 
+import { Footer } from '~/components/Footer'
 import { Header } from '~/components/Header'
 import { TopContainer } from '~/components/TopContainer'
 import { DefaultLayout } from '~/layouts/DefaultLayout'
@@ -16,6 +17,7 @@ export default function Home() {
       <DefaultLayout>
         <Header active="home" />
         <TopContainer />
+        <Footer />
       </DefaultLayout>
     </>
   )
