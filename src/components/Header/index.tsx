@@ -45,7 +45,7 @@ export const Header = ({ active }: Props): ReactElement => {
             </li>
             <li>
               <HeaderLink
-                href="/thecars"
+                href="/cars"
                 label="THE CARS"
                 active={active === 'theCars' ? true : false}
               />
