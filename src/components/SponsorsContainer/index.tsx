@@ -17,22 +17,23 @@ export const SponsorsContainer = (): ReactElement => {
           desc={'To sponsor us is to feel the triumph closer every day.'}
         />
       </section>
-      <div className="contents">
-        <div>
+      <div className={styles.contents}>
+        <section className={styles.sponsorsSection}>
           <Link href={''}> スポンサー様（敬称略）</Link>
+
           <p>
             2020年度大会に向けたKARTの活動にご理解いただきご支援して下さいましたスポンサー企業様の一覧です。
             この場を借りてお礼申し上げます。
             なお、実際にご支援をいただいた後に掲載する方針ですので、ご了承ください。
           </p>
           <SponsorsTable />
-        </div>
+        </section>
 
-        <div>
+        <section className={styles.universityRelatedSection}>
           <Link href={''}> 大学関連</Link>
           <p>毎年お世話になっている大学関連の方々です。</p>
-          <UniversitysTable />
-        </div>
+          <UniversitysRelatedTable />
+        </section>
       </div>
     </div>
   )
@@ -40,7 +41,7 @@ export const SponsorsContainer = (): ReactElement => {
 
 const SponsorsTable = (): ReactElement => {
   return (
-    <table>
+    <table className={styles.sponsorsTable}>
       <tbody>
         <tr>
           <td>
@@ -58,7 +59,7 @@ const SponsorsTable = (): ReactElement => {
   )
 }
 
-const UniversitysTable = (): ReactElement => {
+const UniversitysRelatedTable = (): ReactElement => {
   return (
     <table>
       <tbody>

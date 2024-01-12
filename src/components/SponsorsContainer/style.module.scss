@@ -20,3 +20,32 @@
     line-height: 1.8;
   }
 }
+
+.contents {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.sponsorsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  a {
+    font-family: sans-serif;
+  }
+}
+
+.universityRelatedSection {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  a {
+    font-family: sans-serif;
+  }
+}
+
+.sponsorsTable {
+  a {
+    font-weight: bold;
+  }
+}
