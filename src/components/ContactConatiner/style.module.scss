@@ -1,0 +1,47 @@
+@import '~/styles/variable.module.scss';
+.contactContainer {
+  padding: 18px 180px;
+  gap: 36px;
+  font-size: 18px;
+  font-family: 'Open Sans', Arial, serif;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  h3 {
+    color: $primary-color;
+    font-size: 25px;
+    margin: 30px 0 7px 0;
+    font-family: Impact, Arial, serif;
+  }
+  .discription {
+    text-align: center;
+    font-weight: 300;
+    line-height: 1.8;
+  }
+}
+
+.contents {
+  display: flex;
+  gap: 30px;
+  align-items: top;
+}
+.contactSection {
+  h3 {
+    margin: 0;
+  }
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  a {
+    font-family: sans-serif;
+  }
+  .contactItem {
+    display: flex;
+    gap: 10px;
+  }
+  flex: 1;
+}
+
+.contactForm {
+  flex: 2;
+}
