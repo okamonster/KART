@@ -46,7 +46,7 @@ const SponsorsTable = (): ReactElement => {
         <tr>
           <td>
             <div>
-              <Image src={''} alt="" />
+              <Image src={'/images/top1.jpg'} alt="" />
               <Link href={''}>株式会社アイシン精機</Link>
             </div>
           </td>
