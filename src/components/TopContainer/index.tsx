@@ -2,6 +2,7 @@ import { ReactElement } from 'react'
 
 import { Carousel } from '@mantine/carousel'
 import { Image } from '@mantine/core'
+import Link from 'next/link'
 
 import styles from './style.module.scss'
 export const TopContainer = (): ReactElement => {
@@ -48,9 +49,9 @@ export const TopContainer = (): ReactElement => {
           />
         </div>
       </section>
-      <a href="/sponsors">
+      <Link href="/sponsors">
         <Image src="/images/intro_sponsors.png" alt={'Sponsors'} />
-      </a>
+      </Link>
       <section className={styles.discription}>
         <h3>RECENT ACTIVITIES</h3>
         <p>
