@@ -40,20 +40,35 @@ export const SponsorsContainer = (): ReactElement => {
 }
 
 const SponsorsTable = (): ReactElement => {
+  const sponsors = [
+    {
+      name: '株式会社森精機製作所',
+      src: '/images/sponsors/dmgmoriseiki.jpg',
+      href: '',
+      description: '技術支援及び金銭的支援を頂いています。',
+    },
+  ]
   return (
     <table className={styles.sponsorsTable}>
       <tbody>
-        <tr>
-          <td>
-            <div>
-              <Image src={'/images/top1.jpg'} alt="" />
-              <Link href={''}>株式会社アイシン精機</Link>
-            </div>
-          </td>
-          <td>
-            <p>技術支援及び金銭的支援を頂いています。</p>
-          </td>
-        </tr>
+        {sponsors.map((sponsor, index) => (
+          <tr key={index}>
+            <td>
+              <div
+                style={{
+                  width: '250px',
+                  textAlign: 'center',
+                }}
+              >
+                <Image src={sponsor.src} alt="" />
+                <Link href={sponsor.href}>{sponsor.name}</Link>
+              </div>
+            </td>
+            <td>
+              <p>{sponsor.description}</p>
+            </td>
+          </tr>
+        ))}
       </tbody>
     </table>
   )
