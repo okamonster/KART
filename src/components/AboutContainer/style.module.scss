@@ -1,0 +1,45 @@
+@import '~/styles/variable.module.scss';
+
+.aboutContainer {
+  padding: 18px 180px;
+  gap: 36px;
+  font-size: 18px;
+  font-family: 'Open Sans', Arial, serif;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  h3 {
+    color: $primary-color;
+    font-size: 25px;
+    margin: 30px 0 7px 0;
+    font-family: Impact, Arial, serif;
+  }
+  .discription {
+    text-align: center;
+    font-weight: 300;
+    line-height: 1.8;
+  }
+}
+
+.contents {
+  display: flex;
+  gap: 40px;
+  padding: 0 60px;
+  .mainContents {
+    flex: 3;
+  }
+  .subContents {
+    flex: 1;
+    h3 {
+      font-size: 20px;
+    }
+    li {
+      color: #808080;
+    }
+    a {
+      text-decoration: none;
+      font-size: 16px;
+      color: #808080;
+    }
+  }
+}
