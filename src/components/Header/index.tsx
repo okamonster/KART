@@ -1,7 +1,6 @@
 import { ReactElement } from 'react'
 
 import classNames from 'classnames'
-import Image from 'next/image'
 
 import styles from './style.module.scss'
 
@@ -13,11 +12,10 @@ export const Header = ({ active }: Props): ReactElement => {
     <header>
       <div className={styles.header}>
         <a href="">
-          <Image
+          <img
             src="/images/kart_logo.png"
             alt={'KART'}
-            width={294}
-            height={46}
+            style={{ width: '294px', height: '46px' }}
           />
         </a>
         <div className={styles.nav}>
