@@ -3,19 +3,46 @@ import { ReactElement } from 'react'
 import { Carousel } from '@mantine/carousel'
 import { Image } from '@mantine/core'
 import Link from 'next/link'
+import { FaFacebook, FaTwitter } from 'react-icons/fa'
+import { MdNavigateBefore, MdNavigateNext } from 'react-icons/md'
 
 import styles from './style.module.scss'
+
+const topImages = ['/images/top1.jpg', '/images/top2.jpg', '/images/top3.jpg']
+
+const bottomImages = [
+  '/images/bottom1.jpg',
+  '/images/bottom2.jpg',
+  '/images/bottom3.jpg',
+  '/images/bottom4.jpg',
+  '/images/bottom5.jpg',
+  '/images/bottom6.jpg',
+]
+
 export const TopContainer = (): ReactElement => {
   return (
     <div className={styles.topContainer}>
       <section>
-        <Carousel withIndicators>
-          <Carousel.Slide>
-            <Image
-              src="/images/top1.jpg"
-              alt={'Kyoto University Formula Project KART'}
-            />
-          </Carousel.Slide>
+        <Carousel
+          withIndicators
+          styles={{
+            control: {
+              background: 'none',
+              color: 'white',
+              border: 'none',
+            },
+          }}
+          nextControlIcon={<MdNavigateNext size={50} />}
+          previousControlIcon={<MdNavigateBefore size={50} />}
+        >
+          {topImages.map((images, index) => (
+            <Carousel.Slide key={index}>
+              <Image
+                src={images}
+                alt={'Kyoto University Formula Project KART'}
+              />
+            </Carousel.Slide>
+          ))}
         </Carousel>
       </section>
       <section className={styles.discription}>
@@ -47,6 +74,26 @@ export const TopContainer = (): ReactElement => {
             title="2020年度の設計が進んでいます!"
             desc="We welcome new members!"
           />
+          <SubCard
+            imageUrl="/images/facebook.jpg"
+            href="https://www.facebook.com/KART.official/"
+            title="大会や走行会の様子など，イベントの内容を随時更新していきます．"
+            desc="FaceBook"
+            icon={<FaFacebook />}
+          />
+          <SubCard
+            imageUrl="/images/twitter.jpg"
+            href="https://twitter.com/kart_official"
+            title="メンバーの日ごろのつぶやきです．"
+            desc="Twitter @kart_official"
+            icon={<FaTwitter />}
+          />
+          <SubCard
+            imageUrl="/images/work-2.jpg"
+            href="https://www.jsae.or.jp/formula/"
+            title="全日本学生フォーミュラ公式サイト"
+            desc="FSAE Japan Official Page"
+          />
         </div>
       </section>
       <Link href="/sponsors">
@@ -64,9 +111,23 @@ export const TopContainer = (): ReactElement => {
           slideSize={{ base: '100%', sm: '50%', md: '33.333333%' }}
           slideGap={{ base: 0, sm: 'md' }}
           loop
-          align="start"
+          controlSize={60}
+          styles={{
+            control: {
+              backgroundColor: 'transparent',
+              color: 'white',
+              border: 'none',
+            },
+          }}
+          nextControlIcon={<MdNavigateNext size={50} />}
+          previousControlIcon={<MdNavigateBefore size={50} />}
+          align="center"
         >
-          <Carousel.Slide></Carousel.Slide>
+          {bottomImages.map((images, index) => (
+            <Carousel.Slide key={index}>
+              <Image src={images} alt="" />
+            </Carousel.Slide>
+          ))}
         </Carousel>
       </section>
     </div>
@@ -95,6 +156,44 @@ const NewsCard = ({
       <div className={styles.desc}>
         <a href={href}>{title}</a>
         <p>{desc}</p>
+      </div>
+    </div>
+  )
+}
+
+type SubCardProps = {
+  imageUrl: string
+  href: string
+  title: string
+  desc: string
+  icon?: ReactElement
+}
+
+const SubCard = ({
+  imageUrl,
+  href,
+  title,
+  desc,
+  icon,
+}: SubCardProps): ReactElement => {
+  return (
+    <div className={styles.subCard}>
+      <img
+        src={imageUrl}
+        alt=""
+        style={{
+          flexShrink: 0,
+          width: 170,
+          height: 123,
+          objectFit: 'cover',
+        }}
+      />
+      <div>
+        <a href={href}>{title}</a>
+        <p className={styles.desc}>
+          {desc}
+          <a className={styles.icon}>{icon}</a>
+        </p>
       </div>
     </div>
   )

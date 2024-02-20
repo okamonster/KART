@@ -12,7 +12,7 @@ export const CarsContainer = (): ReactElement => {
     <div className={styles.carsContainer}>
       <section>
         <PageVisual
-          bgImageUrl={'/images/intro_sponsors.png'}
+          bgImageUrl={'/images/top_cars.jpg'}
           title={'THE CARS'}
           desc={'Cars we developed, designed, produced, and raced.'}
         />

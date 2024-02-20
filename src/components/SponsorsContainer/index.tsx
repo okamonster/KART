@@ -40,20 +40,44 @@ export const SponsorsContainer = (): ReactElement => {
 }
 
 const SponsorsTable = (): ReactElement => {
+  const sponsors = [
+    {
+      name: '株式会社森精機製作所',
+      src: '/images/sponsors/dmgmoriseiki.jpg',
+      href: '',
+      description: '技術支援及び金銭的支援を頂いています。',
+      size: 'md',
+    },
+    {
+      name: '川崎重工株式会社',
+      src: '/images/sponsors/kawasaki.jpg',
+      href: '',
+      description: '物品および技術支援を頂いています。',
+      size: 'sm',
+    },
+  ]
   return (
     <table className={styles.sponsorsTable}>
       <tbody>
-        <tr>
-          <td>
-            <div>
-              <Image src={'/images/top1.jpg'} alt="" />
-              <Link href={''}>株式会社アイシン精機</Link>
-            </div>
-          </td>
-          <td>
-            <p>技術支援及び金銭的支援を頂いています。</p>
-          </td>
-        </tr>
+        {sponsors.map((sponsor, index) => (
+          <tr key={index}>
+            <td>
+              <div className={styles.sponsorCard}>
+                <Image
+                  src={sponsor.src}
+                  alt=""
+                  style={{ width: sponsor.size === 'md' ? '250px' : '150px' }}
+                />
+                <Link href={sponsor.href} style={{ textDecoration: 'none' }}>
+                  {sponsor.name}
+                </Link>
+              </div>
+            </td>
+            <td>
+              <p>{sponsor.description}</p>
+            </td>
+          </tr>
+        ))}
       </tbody>
     </table>
   )
@@ -61,10 +85,15 @@ const SponsorsTable = (): ReactElement => {
 
 const UniversitysRelatedTable = (): ReactElement => {
   return (
-    <table>
+    <table className={styles.universityRelatedTable}>
       <tbody>
         <tr>
-          <td>
+          <td
+            width={250}
+            style={{
+              marginTop: '20px',
+            }}
+          >
             <Link href={''}>東京工業大学</Link>
           </td>
           <td>
