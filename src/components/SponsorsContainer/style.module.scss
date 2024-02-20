@@ -47,5 +47,27 @@
 .sponsorsTable {
   a {
     font-weight: bold;
+    text-decoration: 'none';
+  }
+
+  .sponsorCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+}
+
+.universityRelatedTable {
+  a {
+    font-weight: bold;
+    text-decoration: 'none';
+  }
+
+  .sponsorCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
   }
 }

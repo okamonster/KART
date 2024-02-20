@@ -46,6 +46,14 @@ const SponsorsTable = (): ReactElement => {
       src: '/images/sponsors/dmgmoriseiki.jpg',
       href: '',
       description: '技術支援及び金銭的支援を頂いています。',
+      size: 'md',
+    },
+    {
+      name: '川崎重工株式会社',
+      src: '/images/sponsors/kawasaki.jpg',
+      href: '',
+      description: '物品および技術支援を頂いています。',
+      size: 'sm',
     },
   ]
   return (
@@ -54,14 +62,15 @@ const SponsorsTable = (): ReactElement => {
         {sponsors.map((sponsor, index) => (
           <tr key={index}>
             <td>
-              <div
-                style={{
-                  width: '250px',
-                  textAlign: 'center',
-                }}
-              >
-                <Image src={sponsor.src} alt="" />
-                <Link href={sponsor.href}>{sponsor.name}</Link>
+              <div className={styles.sponsorCard}>
+                <Image
+                  src={sponsor.src}
+                  alt=""
+                  style={{ width: sponsor.size === 'md' ? '250px' : '150px' }}
+                />
+                <Link href={sponsor.href} style={{ textDecoration: 'none' }}>
+                  {sponsor.name}
+                </Link>
               </div>
             </td>
             <td>
@@ -76,10 +85,15 @@ const SponsorsTable = (): ReactElement => {
 
 const UniversitysRelatedTable = (): ReactElement => {
   return (
-    <table>
+    <table className={styles.universityRelatedTable}>
       <tbody>
         <tr>
-          <td>
+          <td
+            width={250}
+            style={{
+              marginTop: '20px',
+            }}
+          >
             <Link href={''}>東京工業大学</Link>
           </td>
           <td>
