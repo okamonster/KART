@@ -3,6 +3,7 @@ import { ReactElement } from 'react'
 import { Carousel } from '@mantine/carousel'
 import { Image } from '@mantine/core'
 import Link from 'next/link'
+import { FaFacebook, FaTwitter } from 'react-icons/fa'
 import { MdNavigateBefore, MdNavigateNext } from 'react-icons/md'
 
 import styles from './style.module.scss'
@@ -73,6 +74,26 @@ export const TopContainer = (): ReactElement => {
             title="2020年度の設計が進んでいます!"
             desc="We welcome new members!"
           />
+          <SubCard
+            imageUrl="/images/facebook.jpg"
+            href="https://www.facebook.com/KART.official/"
+            title="大会や走行会の様子など，イベントの内容を随時更新していきます．"
+            desc="FaceBook"
+            icon={<FaFacebook />}
+          />
+          <SubCard
+            imageUrl="/images/twitter.jpg"
+            href="https://twitter.com/kart_official"
+            title="メンバーの日ごろのつぶやきです．"
+            desc="Twitter @kart_official"
+            icon={<FaTwitter />}
+          />
+          <SubCard
+            imageUrl="/images/work-2.jpg"
+            href="https://www.jsae.or.jp/formula/"
+            title="全日本学生フォーミュラ公式サイト"
+            desc="FSAE Japan Official Page"
+          />
         </div>
       </section>
       <Link href="/sponsors">
@@ -135,6 +156,44 @@ const NewsCard = ({
       <div className={styles.desc}>
         <a href={href}>{title}</a>
         <p>{desc}</p>
+      </div>
+    </div>
+  )
+}
+
+type SubCardProps = {
+  imageUrl: string
+  href: string
+  title: string
+  desc: string
+  icon?: ReactElement
+}
+
+const SubCard = ({
+  imageUrl,
+  href,
+  title,
+  desc,
+  icon,
+}: SubCardProps): ReactElement => {
+  return (
+    <div className={styles.subCard}>
+      <img
+        src={imageUrl}
+        alt=""
+        style={{
+          flexShrink: 0,
+          width: 170,
+          height: 123,
+          objectFit: 'cover',
+        }}
+      />
+      <div>
+        <a href={href}>{title}</a>
+        <p className={styles.desc}>
+          {desc}
+          <a className={styles.icon}>{icon}</a>
+        </p>
       </div>
     </div>
   )
