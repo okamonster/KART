@@ -1,6 +1,7 @@
 import { ReactElement } from 'react'
 
 import styles from './style.module.scss'
+
 import { basePath } from 'next.config'
 
 type Props = {

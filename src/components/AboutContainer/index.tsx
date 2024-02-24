@@ -4,8 +4,9 @@ import { Image } from '@mantine/core'
 
 import styles from './style.module.scss'
 
-import { PageVisual } from '~/components/PageVisual'
 import { basePath } from 'next.config'
+import { PageVisual } from '~/components/PageVisual'
+
 export const AboutContainer = (): ReactElement => {
   return (
     <div className={styles.aboutContainer}>

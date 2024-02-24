@@ -1,10 +1,11 @@
 import { ReactElement } from 'react'
 
+import { Image } from '@mantine/core'
 import classNames from 'classnames'
 
 import styles from './style.module.scss'
+
 import { basePath } from 'next.config'
-import { Image } from '@mantine/core'
 
 type Props = {
   active: 'home' | 'about' | 'sponsors' | 'theCars' | 'contact'

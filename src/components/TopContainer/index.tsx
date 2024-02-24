@@ -7,6 +7,7 @@ import { FaFacebook, FaTwitter } from 'react-icons/fa'
 import { MdNavigateBefore, MdNavigateNext } from 'react-icons/md'
 
 import styles from './style.module.scss'
+
 import { basePath } from 'next.config'
 
 const topImages = ['/images/top1.jpg', '/images/top2.jpg', '/images/top3.jpg']
