@@ -5,6 +5,7 @@ import { Image } from '@mantine/core'
 import styles from './style.module.scss'
 
 import { PageVisual } from '~/components/PageVisual'
+import { basePath } from 'next.config'
 export const AboutContainer = (): ReactElement => {
   return (
     <div className={styles.aboutContainer}>
@@ -31,7 +32,7 @@ export const AboutContainer = (): ReactElement => {
         <div className={styles.subContents}>
           <div>
             <h3>Recent achievements</h3>
-            <Image src="/images/award.jpg" alt="" w={320} />
+            <Image src={`${basePath}/images/award.jpg`} alt="" w={320} />
             <ul>
               <li>
                 <a href="">1st prize over all (2013)</a>
@@ -71,7 +72,7 @@ const Article = ({
       <h3>{title}</h3>
       <div className={styles.description}>
         <Image
-          src={imageUrl}
+          src={basePath + imageUrl}
           alt=""
           w={320}
           style={{

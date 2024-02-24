@@ -1,6 +1,7 @@
 import { ReactElement } from 'react'
 
 import styles from './style.module.scss'
+import { basePath } from 'next.config'
 
 type Props = {
   bgImageUrl: string
@@ -16,7 +17,7 @@ export const PageVisual = ({
     <div
       className={styles.pageVisual}
       style={{
-        backgroundImage: `url(${bgImageUrl})`,
+        backgroundImage: `url(${basePath + bgImageUrl})`,
         backgroundSize: 'cover',
       }}
     >

@@ -5,6 +5,7 @@ import Link from 'next/link'
 
 import styles from './style.module.scss'
 
+import { basePath } from 'next.config'
 import { PageVisual } from '~/components/PageVisual'
 
 export const SponsorsContainer = (): ReactElement => {
@@ -64,7 +65,7 @@ const SponsorsTable = (): ReactElement => {
             <td>
               <div className={styles.sponsorCard}>
                 <Image
-                  src={sponsor.src}
+                  src={`${basePath}${sponsor.src}`}
                   alt=""
                   style={{ width: sponsor.size === 'md' ? '250px' : '150px' }}
                 />

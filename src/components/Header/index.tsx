@@ -3,6 +3,8 @@ import { ReactElement } from 'react'
 import classNames from 'classnames'
 
 import styles from './style.module.scss'
+import { basePath } from 'next.config'
+import { Image } from '@mantine/core'
 
 type Props = {
   active: 'home' | 'about' | 'sponsors' | 'theCars' | 'contact'
@@ -12,8 +14,8 @@ export const Header = ({ active }: Props): ReactElement => {
     <header>
       <div className={styles.header}>
         <a href="">
-          <img
-            src="/images/kart_logo.png"
+          <Image
+            src={`${basePath}/images/kart_logo.png`}
             alt={'KART'}
             style={{ width: '294px', height: '46px' }}
           />
@@ -22,35 +24,35 @@ export const Header = ({ active }: Props): ReactElement => {
           <ul>
             <li>
               <HeaderLink
-                href="/"
+                href={`${basePath}/`}
                 label="HOME"
                 active={active === 'home' ? true : false}
               />
             </li>
             <li>
               <HeaderLink
-                href="/about"
+                href={`${basePath}/about`}
                 label="ABOUT"
                 active={active === 'about' ? true : false}
               />
             </li>
             <li>
               <HeaderLink
-                href="/sponsors"
+                href={`${basePath}/sponsors`}
                 label="SPONSORS"
                 active={active === 'sponsors' ? true : false}
               />
             </li>
             <li>
               <HeaderLink
-                href="/cars"
+                href={`${basePath}/cars`}
                 label="THE CARS"
                 active={active === 'theCars' ? true : false}
               />
             </li>
             <li>
               <HeaderLink
-                href="/contact"
+                href={`${basePath}/contact`}
                 label="CONTACT"
                 active={active === 'contact' ? true : false}
               />

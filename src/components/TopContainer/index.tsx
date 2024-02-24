@@ -7,6 +7,7 @@ import { FaFacebook, FaTwitter } from 'react-icons/fa'
 import { MdNavigateBefore, MdNavigateNext } from 'react-icons/md'
 
 import styles from './style.module.scss'
+import { basePath } from 'next.config'
 
 const topImages = ['/images/top1.jpg', '/images/top2.jpg', '/images/top3.jpg']
 
@@ -38,7 +39,7 @@ export const TopContainer = (): ReactElement => {
           {topImages.map((images, index) => (
             <Carousel.Slide key={index}>
               <Image
-                src={images}
+                src={`${basePath}${images}`}
                 alt={'Kyoto University Formula Project KART'}
               />
             </Carousel.Slide>
@@ -69,27 +70,27 @@ export const TopContainer = (): ReactElement => {
         </div>
         <div className={styles.cardArea}>
           <NewsCard
-            imageUrl="/images/sinkan.jpg"
+            imageUrl={`${basePath}/images/sinkan.jpg`}
             href=""
             title="2020年度の設計が進んでいます!"
             desc="We welcome new members!"
           />
           <SubCard
-            imageUrl="/images/facebook.jpg"
+            imageUrl={`${basePath}/images/facebook.jpg`}
             href="https://www.facebook.com/KART.official/"
             title="大会や走行会の様子など，イベントの内容を随時更新していきます．"
             desc="FaceBook"
             icon={<FaFacebook />}
           />
           <SubCard
-            imageUrl="/images/twitter.jpg"
+            imageUrl={`${basePath}/images/twitter.jpg`}
             href="https://twitter.com/kart_official"
             title="メンバーの日ごろのつぶやきです．"
             desc="Twitter @kart_official"
             icon={<FaTwitter />}
           />
           <SubCard
-            imageUrl="/images/work-2.jpg"
+            imageUrl={`${basePath}/images/work-2.jpg`}
             href="https://www.jsae.or.jp/formula/"
             title="全日本学生フォーミュラ公式サイト"
             desc="FSAE Japan Official Page"
@@ -97,7 +98,7 @@ export const TopContainer = (): ReactElement => {
         </div>
       </section>
       <Link href="/sponsors">
-        <Image src="/images/intro_sponsors.png" alt={'Sponsors'} />
+        <Image src={`${basePath}/images/intro_sponsors.png`} alt={'Sponsors'} />
       </Link>
       <section className={styles.discription}>
         <h3>RECENT ACTIVITIES</h3>
@@ -125,7 +126,7 @@ export const TopContainer = (): ReactElement => {
         >
           {bottomImages.map((images, index) => (
             <Carousel.Slide key={index}>
-              <Image src={images} alt="" />
+              <Image src={`${basePath}${images}`} alt="" />
             </Carousel.Slide>
           ))}
         </Carousel>

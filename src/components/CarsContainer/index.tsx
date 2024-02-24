@@ -5,6 +5,7 @@ import Link from 'next/link'
 
 import styles from './style.module.scss'
 
+import { basePath } from 'next.config'
 import { PageVisual } from '~/components/PageVisual'
 
 export const CarsContainer = (): ReactElement => {
@@ -52,7 +53,7 @@ const CarCard = ({ isLeft }: CarCardProps): ReactElement => {
         </p>
       </div>
       <Image
-        src={'/images/top1.jpg'}
+        src={`${basePath}/images/top1.jpg`}
         alt=""
         radius={'md'}
         style={{ width: '60%' }}
@@ -61,7 +62,7 @@ const CarCard = ({ isLeft }: CarCardProps): ReactElement => {
   ) : (
     <div className={styles.carCard}>
       <Image
-        src={'/images/top1.jpg'}
+        src={`${basePath}/images/top1.jpg`}
         alt=""
         radius={'md'}
         style={{ width: '60%' }}

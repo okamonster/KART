@@ -17,7 +17,7 @@ export const ContactContainer = (): ReactElement => {
       <div className={styles.contactContainer}>
         <section>
           <PageVisual
-            bgImageUrl={'/images/intro_sponsors.png'}
+            bgImageUrl="/images/intro_sponsors.png"
             title={'CONTACT US'}
             desc={`We always wecolcome new members and new sponsors  who struggle to win together. Please feel free to contact us.`}
           />
