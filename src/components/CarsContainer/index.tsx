@@ -5,10 +5,16 @@ import Link from 'next/link'
 
 import styles from './style.module.scss'
 
-import { basePath } from 'next.config'
 import { PageVisual } from '~/components/PageVisual'
+import { Car } from '~/types.ts/cars'
 
-export const CarsContainer = (): ReactElement => {
+type Props = {
+  cars: Array<Car>
+}
+
+export const CarsContainer = ({ cars }: Props): ReactElement => {
+  const topCars = cars.slice(0, 6)
+  const bottomCars = cars.slice(6, cars.length - 1)
   return (
     <div className={styles.carsContainer}>
       <section>
@@ -19,73 +25,125 @@ export const CarsContainer = (): ReactElement => {
         />
       </section>
       <div className={styles.contents}>
-        <CarCard />
-        <CarCard isLeft />
+        {topCars.map((carData, index) =>
+          index % 2 == 0 ? (
+            <CarCard
+              key={index}
+              carImage={carData.carImage}
+              carType={carData.carType}
+              carName={carData.carName}
+              engine={carData.engine}
+              wheelbase={carData.wheelbase}
+              tread={carData.tread}
+              weight={carData.weight}
+              overallRanking={carData.overallRanking}
+              description={carData.description}
+            />
+          ) : (
+            <CarCard
+              isLeft
+              key={index}
+              carImage={carData.carImage}
+              carType={carData.carType}
+              carName={carData.carName}
+              engine={carData.engine}
+              wheelbase={carData.wheelbase}
+              tread={carData.tread}
+              weight={carData.weight}
+              overallRanking={carData.overallRanking}
+              description={carData.description}
+            />
+          ),
+        )}
+        <div className={styles.bottomCars}>
+          {bottomCars.map((carData, index) => (
+            <div style={{ width: '45%' }} key={index}>
+              <CarCard
+                isLeft
+                carImage={carData.carImage}
+                carType={carData.carType}
+                engine={carData.engine}
+                wheelbase={carData.wheelbase}
+                tread={carData.tread}
+                weight={carData.weight}
+                overallRanking={carData.overallRanking}
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   )
 }
 
-type CarCardProps = {
+type CarCardProps = Omit<Car, 'createdAt'> & {
   isLeft?: boolean
 }
-const CarCard = ({ isLeft }: CarCardProps): ReactElement => {
+
+const CarCard = ({
+  isLeft,
+  carImage,
+  carType,
+  carName,
+  engine,
+  wheelbase,
+  tread,
+  weight,
+  overallRanking,
+  description,
+}: CarCardProps): ReactElement => {
   return isLeft ? (
     <div className={styles.carCard}>
       <div className={styles.carDescription}>
         <div className={styles.carTitle}>
           <h3>
-            <Link href={''}>KZ-R17</Link>
+            <Link href={''}>{carType}</Link>
           </h3>
-          <h2>Culmination</h2>
+          <h2>{carName}</h2>
         </div>
 
-        <p>
-          Engine:
-          <br />
-          Wheelbase:mm
-          <br />
-          Tread:kg
-          <br />
-          Overall ranking
-          <br />
-          三カ年計画の，そしてKARTの16年間の活動の集大成として製作された車両．従来の単気筒エンジンから，カセットミッション式650cc並列2気筒エンジンに変更することで，理想として揚げた車両パッケージを実現した．
-        </p>
+        {engine && <p>Engine:{engine}</p>}
+        {wheelbase && <p>Wheelbase:{wheelbase}mm</p>}
+        {tread && <p>Tread:{tread}</p>}
+        {weight && <p>Weight:{weight}kg</p>}
+        {overallRanking && <p>Overall ranking:{overallRanking}</p>}
+        {description && <p>{description}</p>}
       </div>
       <Image
-        src={`${basePath}/images/top1.jpg`}
-        alt=""
+        fit="contain"
+        src={carImage}
+        alt={carName}
         radius={'md'}
-        style={{ width: '60%' }}
+        style={{
+          width: '60%',
+        }}
       />
     </div>
   ) : (
     <div className={styles.carCard}>
       <Image
-        src={`${basePath}/images/top1.jpg`}
-        alt=""
+        fit="contain"
+        src={carImage}
+        alt={carName}
         radius={'md'}
-        style={{ width: '60%' }}
+        style={{
+          width: '60%',
+        }}
       />
       <div className={styles.carDescription}>
         <div className={styles.carTitle}>
           <h3>
-            <Link href={''}>KZ-R17</Link>
+            <Link href={''}>{carType}</Link>
           </h3>
-          <h2>Culmination</h2>
+          <h2>{carName}</h2>
         </div>
 
-        <p>
-          Engine:
-          <br />
-          Wheelbase:mm
-          <br />
-          Tread:kg
-          <br />
-          Overall ranking
-          <br />
-          三カ年計画の，そしてKARTの16年間の活動の集大成として製作された車両．従来の単気筒エンジンから，カセットミッション式650cc並列2気筒エンジンに変更することで，理想として揚げた車両パッケージを実現した．
-        </p>
+        {engine && <p>Engine:{engine}</p>}
+        {wheelbase && <p>Wheelbase:{wheelbase}mm</p>}
+        {tread && <p>Tread:{tread}</p>}
+        {weight && <p>Weight:{weight}kg</p>}
+        {overallRanking && <p>Overall ranking:{overallRanking}</p>}
+        {description && <p>{description}</p>}
       </div>
     </div>
   )

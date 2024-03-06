@@ -1,14 +1,45 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { CarsContainer } from '~/components/CarsContainer'
 import { Footer } from '~/components/Footer'
 import { Header } from '~/components/Header'
 import { DefaultLayout } from '~/layouts/DefaultLayout'
+import { client } from '~/libs/cmsClient'
+import { Car } from '~/types.ts/cars'
 
-export default function Cars() {
+type Props = {
+  cars: Array<Car>
+}
+
+export default function Cars({ cars }: Props) {
+  console.log(cars)
   return (
     <DefaultLayout>
       <Header active={'theCars'} />
-      <CarsContainer />
+      <CarsContainer cars={cars} />
       <Footer />
     </DefaultLayout>
   )
+}
+
+export const getStaticProps = async () => {
+  const data = await client.get({ endpoint: 'cars' })
+
+  const cars = data.contents.map((car: any) => {
+    return {
+      createdAt: car.createdAt,
+      carImage: car.carImage.url,
+      carType: car.carType,
+      carName: car.carName,
+      engine: car.engine,
+      wheelbase: car.wheelbase,
+      tread: car.tread,
+      weight: car.weight,
+      overallRanking: car.overallRanking,
+      description: car.description,
+    } as Car
+  })
+
+  return {
+    props: { cars: cars },
+  }
 }
