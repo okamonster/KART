@@ -26,16 +26,8 @@ export const getStaticProps = async () => {
 
   const cars = data.contents.map((car: any) => {
     return {
-      createdAt: car.createdAt,
       carImage: car.carImage.url,
-      carType: car.carType,
-      carName: car.carName,
-      engine: car.engine,
-      wheelbase: car.wheelbase,
-      tread: car.tread,
-      weight: car.weight,
-      overallRanking: car.overallRanking,
-      description: car.description,
+      ...car,
     } as Car
   })
 
