@@ -5,10 +5,17 @@ import Link from 'next/link'
 
 import styles from './style.module.scss'
 
-import { basePath } from 'next.config'
 import { PageVisual } from '~/components/PageVisual'
+import { Sponsor } from '~/types.ts/sponsors'
 
-export const SponsorsContainer = (): ReactElement => {
+type Props = {
+  sponsors: Array<Sponsor>
+}
+
+export const SponsorsContainer = ({ sponsors }: Props): ReactElement => {
+  const companySponsors = sponsors.filter((sponsor) => !sponsor.isUniversity)
+  const universitySponsors = sponsors.filter((sponsor) => sponsor.isUniversity)
+
   return (
     <div className={styles.sponsorsContainer}>
       <section>
@@ -27,36 +34,24 @@ export const SponsorsContainer = (): ReactElement => {
             この場を借りてお礼申し上げます。
             なお、実際にご支援をいただいた後に掲載する方針ですので、ご了承ください。
           </p>
-          <SponsorsTable />
+          <SponsorsTable sponsors={companySponsors} />
         </section>
 
         <section className={styles.universityRelatedSection}>
           <Link href={''}> 大学関連</Link>
           <p>毎年お世話になっている大学関連の方々です。</p>
-          <UniversitysRelatedTable />
+          <UniversitysRelatedTable sponsors={universitySponsors} />
         </section>
       </div>
     </div>
   )
 }
 
-const SponsorsTable = (): ReactElement => {
-  const sponsors = [
-    {
-      name: '株式会社森精機製作所',
-      src: '/images/sponsors/dmgmoriseiki.jpg',
-      href: '',
-      description: '技術支援及び金銭的支援を頂いています。',
-      size: 'md',
-    },
-    {
-      name: '川崎重工株式会社',
-      src: '/images/sponsors/kawasaki.jpg',
-      href: '',
-      description: '物品および技術支援を頂いています。',
-      size: 'sm',
-    },
-  ]
+type TableProps = {
+  sponsors: Array<Sponsor>
+}
+
+const SponsorsTable = ({ sponsors }: TableProps): ReactElement => {
   return (
     <table className={styles.sponsorsTable}>
       <tbody>
@@ -65,17 +60,20 @@ const SponsorsTable = (): ReactElement => {
             <td>
               <div className={styles.sponsorCard}>
                 <Image
-                  src={`${basePath}${sponsor.src}`}
-                  alt=""
-                  style={{ width: sponsor.size === 'md' ? '250px' : '150px' }}
+                  src={sponsor.sponsorImage}
+                  alt={sponsor.sponsorName}
+                  style={{ width: sponsor.isSmImage ? '150px' : '250px' }}
                 />
-                <Link href={sponsor.href} style={{ textDecoration: 'none' }}>
-                  {sponsor.name}
+                <Link
+                  href={sponsor.sponsorLink}
+                  style={{ textDecoration: 'none' }}
+                >
+                  {sponsor.sponsorName}
                 </Link>
               </div>
             </td>
             <td>
-              <p>{sponsor.description}</p>
+              <p>{sponsor.sponsorDescription}</p>
             </td>
           </tr>
         ))}
@@ -84,25 +82,25 @@ const SponsorsTable = (): ReactElement => {
   )
 }
 
-const UniversitysRelatedTable = (): ReactElement => {
+const UniversitysRelatedTable = ({ sponsors }: TableProps): ReactElement => {
   return (
     <table className={styles.universityRelatedTable}>
       <tbody>
-        <tr>
-          <td
-            width={250}
-            style={{
-              marginTop: '20px',
-            }}
-          >
-            <Link href={''}>東京工業大学</Link>
-          </td>
-          <td>
-            <p>
-              京都大学機械系専攻の同窓会組織です。多くの方にサポーターとしてご支援いただいている他、全面的に私たちの活動をバックアップして下さっています。
-            </p>
-          </td>
-        </tr>
+        {sponsors.map((sponsor, index) => (
+          <tr key={index}>
+            <td
+              width={250}
+              style={{
+                marginTop: '20px',
+              }}
+            >
+              <Link href={sponsor.sponsorLink}>{sponsor.sponsorName}</Link>
+            </td>
+            <td>
+              <p>{sponsor.sponsorDescription}</p>
+            </td>
+          </tr>
+        ))}
       </tbody>
     </table>
   )
