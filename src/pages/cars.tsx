@@ -26,7 +26,7 @@ export const getStaticProps = async () => {
 
   const cars = data.contents.map((car: any) => {
     return {
-      carImage: car.carImage.url,
+      carImage: car.Image.url,
       ...car,
     } as Car
   })
