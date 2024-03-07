@@ -3,7 +3,7 @@ import { CarsContainer } from '~/components/CarsContainer'
 import { Footer } from '~/components/Footer'
 import { Header } from '~/components/Header'
 import { DefaultLayout } from '~/layouts/DefaultLayout'
-import { client } from '~/libs/cmsClient'
+import { getClient } from '~/libs/cmsClient'
 import { Car } from '~/types.ts/cars'
 
 type Props = {
@@ -21,7 +21,7 @@ export default function Cars({ cars }: Props) {
 }
 
 export const getStaticProps = async () => {
-  const data = await client.get({ endpoint: 'cars' })
+  const data = await getClient('cars')
 
   const cars = data.contents.map((car: any) => {
     return {

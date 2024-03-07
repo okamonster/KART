@@ -7,3 +7,8 @@ export const client = createClient({
   serviceDomain: serviceDomain,
   apiKey: apiKey,
 })
+
+export const getClient = async (endpoint: string) => {
+  const data = await client.get({ endpoint: endpoint })
+  return data
+}
