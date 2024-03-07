@@ -31,8 +31,10 @@
 .carCard {
   display: flex;
   width: '100%';
-  gap: 40px;
+  align-items: center;
+  gap: 20px;
 }
+
 .carDescription {
   flex: 1;
   h3 {
@@ -48,4 +50,11 @@
     text-decoration: none;
     color: $primary-color;
   }
+}
+
+.bottomCars {
+  display: flex;
+  align-items: top;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
