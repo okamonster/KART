@@ -11,7 +11,6 @@ type Props = {
 }
 
 export default function Cars({ cars }: Props) {
-  console.log(cars)
   return (
     <DefaultLayout>
       <Header active={'theCars'} />
