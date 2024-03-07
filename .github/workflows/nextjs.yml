@@ -79,6 +79,7 @@ jobs:
         env:
           NEXT_PUBLIC_MICROCMS_API_KEY: ${{ secrets.NEXT_PUBLIC_MICROCMS_API_KEY }},
           NEXT_PUBLIC_MICROCMS_SERVICE_DOMAIN: ${{ secrets.NEXT_PUBLIC_MICROCMS_SERVICE_DOMAIN }}
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
