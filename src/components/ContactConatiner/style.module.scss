@@ -6,7 +6,11 @@
   font-family: 'Open Sans', Arial, serif;
   display: flex;
   flex-direction: column;
-  position: relative;
+
+  @media (max-width: 600px) {
+    padding: 18px 20px;
+  }
+
   h3 {
     color: $primary-color;
     font-size: 25px;
@@ -24,6 +28,10 @@
   display: flex;
   gap: 30px;
   align-items: top;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+  }
 }
 .contactSection {
   h3 {

@@ -126,9 +126,7 @@ const CarCard = ({
         src={carImage}
         alt={carName}
         radius={'md'}
-        style={{
-          width: '60%',
-        }}
+        className={styles.carImage}
       />
       <div className={styles.carDescription}>
         <div className={styles.carTitle}>
