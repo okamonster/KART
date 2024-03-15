@@ -8,20 +8,37 @@
   display: flex;
   flex-direction: column;
   position: relative;
+
+  @media (max-width: 600px) {
+    padding: 18px 0;
+  }
+
   h3 {
     color: $primary-color;
     font-size: 25px;
     margin: 30px 0 7px 0;
     font-family: Impact, Arial, serif;
   }
+
   .discription {
     text-align: center;
     font-weight: 300;
     line-height: 1.8;
+
+    @media (max-width: 600px) {
+      padding: 0 20px;
+    }
   }
+
   .newsSection {
     display: flex;
     gap: 18px;
+
+    @media (max-width: 600px) {
+      flex-direction: column;
+      padding: 0 20px;
+    }
+
     .iframeArea {
       display: grid;
       width: 100%;

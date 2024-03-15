@@ -75,7 +75,7 @@ const Article = ({
         <Image
           src={basePath + imageUrl}
           alt=""
-          w={320}
+          className={styles.articleImage}
           style={{
             float: right ? 'right' : 'left',
             marginRight: right ? '0' : '40px',

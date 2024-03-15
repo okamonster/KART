@@ -54,7 +54,7 @@ type TableProps = {
 const SponsorsTable = ({ sponsors }: TableProps): ReactElement => {
   return (
     <table className={styles.sponsorsTable}>
-      <tbody>
+      <tbody className={styles.table}>
         {sponsors.map((sponsor, index) => (
           <tr key={index}>
             <td>
@@ -85,11 +85,10 @@ const SponsorsTable = ({ sponsors }: TableProps): ReactElement => {
 const UniversitysRelatedTable = ({ sponsors }: TableProps): ReactElement => {
   return (
     <table className={styles.universityRelatedTable}>
-      <tbody>
+      <tbody className={styles.table}>
         {sponsors.map((sponsor, index) => (
           <tr key={index}>
             <td
-              width={250}
               style={{
                 marginTop: '20px',
               }}

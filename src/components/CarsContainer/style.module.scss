@@ -7,7 +7,11 @@
   font-family: 'Open Sans', Arial, serif;
   display: flex;
   flex-direction: column;
-  position: relative;
+
+  @media (max-width: 600px) {
+    padding: 18px 20px;
+  }
+
   h3 {
     color: $primary-color;
     font-size: 25px;
@@ -26,6 +30,9 @@
   display: flex;
   flex-direction: column;
   gap: 40px;
+  @media (max-width: 600px) {
+    padding: 0;
+  }
 }
 
 .carCard {
@@ -33,22 +40,34 @@
   width: '100%';
   align-items: center;
   gap: 20px;
-}
 
-.carDescription {
-  flex: 1;
-  h3 {
-    font-size: 35px;
-    padding: 0;
+  @media (max-width: 600px) {
+    flex-direction: column;
+    gap: 5px;
   }
-  h2 {
-    font-family: serif;
-    color: $primary-color;
-    font-size: 30px;
+
+  .carImage {
+    width: 60%;
+    @media (max-width: 600px) {
+      width: 100%;
+    }
   }
-  a {
-    text-decoration: none;
-    color: $primary-color;
+
+  .carDescription {
+    flex: 1;
+    h3 {
+      font-size: 35px;
+      padding: 0;
+    }
+    h2 {
+      font-family: serif;
+      color: $primary-color;
+      font-size: 30px;
+    }
+    a {
+      text-decoration: none;
+      color: $primary-color;
+    }
   }
 }
 
