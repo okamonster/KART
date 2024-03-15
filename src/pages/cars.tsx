@@ -2,6 +2,7 @@
 import { CarsContainer } from '~/components/CarsContainer'
 import { Footer } from '~/components/Footer'
 import { Header } from '~/components/Header'
+import { BaseHead } from '~/heads/baseHead'
 import { DefaultLayout } from '~/layouts/DefaultLayout'
 import { getClient } from '~/libs/cmsClient'
 import { Car } from '~/types.ts/cars'
@@ -12,11 +13,14 @@ type Props = {
 
 export default function Cars({ cars }: Props) {
   return (
-    <DefaultLayout>
-      <Header active={'theCars'} />
-      <CarsContainer cars={cars} />
-      <Footer />
-    </DefaultLayout>
+    <>
+      <BaseHead title='"京都大学フォーミュラプロジェクトKART" ' />
+      <DefaultLayout>
+        <Header active={'theCars'} />
+        <CarsContainer cars={cars} />
+        <Footer />
+      </DefaultLayout>
+    </>
   )
 }
 
